@@ -1,0 +1,41 @@
+.Track {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-bottom: 1px solid grey;
+    padding: 10px 0px;
+    gap: 5px;
+
+    &__cover {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 10px;
+    }
+
+    &__name {
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        padding: 0px 5px;
+    }
+
+    &__artist {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 1.2rem;
+        padding: 0px 5px;
+
+        & > img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+    }
+
+    audio {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}

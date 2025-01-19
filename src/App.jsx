@@ -59,7 +59,7 @@ function App() {
     return (
         <>
             {track ?
-                <div>
+                <div className="Wrapper">
                     <Track data={track} />
                     <Micro_track data={trackArray[1]} />
                     <Micro_track data={trackArray[0]} />

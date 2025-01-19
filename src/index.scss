@@ -5,3 +5,22 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: roboto, sans-serif;
+}
+
+.Wrapper {
+    width: 80vw;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: justify;
+    border: 1px grey solid;
+    border-radius: 20px;
+    padding: 0px 10px;
+}

@@ -5,9 +5,9 @@ const Micro_track = ({ data }) => {
     return (
         <div className={s["Micro-Track"]}>
             <img className={s["Micro-Track__cover"]} src={data?.album?.cover} alt="" />
-            <div>
-                <h2>{data?.title}</h2>
-                <p>{data?.artist?.name}</p>
+            <div className={s["Micro-Track__info"]}>
+                <h2 className={s["Micro-Track__name"]}>{data?.title}</h2>
+                <p className={s["Micro-Track__artist"]}>{data?.artist?.name}</p>
             </div>
         </div>
     );
