@@ -8,6 +8,7 @@ import Loading from './components/Loading/Loading';
 
 function App() {
 
+    const [play, setPlay] = useState(false);
     const [trackNumber, setTrackNumber] = useState(0);
     const [track, setTrack] = useState();
     const [trackArray, setTrackArray] = useState();
@@ -64,9 +65,9 @@ function App() {
                 <main>
                     {track.album.cover_medium && <BgColor srcImg={track?.album?.cover_medium} />}
                     <div className="Wrapper">
-                        <Track data={track} />
-                        <Micro_track data={trackArray[1]} />
-                        <Micro_track data={trackArray[0]} />
+                        <Track data={track} play={play} setPlay={setPlay} />
+                        <Micro_track id={2} data={trackArray[1]} play={play} setPlay={setPlay} />
+                        <Micro_track id={3} data={trackArray[0]} play={play} setPlay={setPlay} />
                     </div>
                 </main>
                 : <Loading />

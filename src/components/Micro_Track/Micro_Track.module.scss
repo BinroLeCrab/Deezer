@@ -11,6 +11,10 @@
         border-radius: 10px;
     }
 
+    &__cover-wrapper {
+        position: relative;
+    }
+
     &__name {
         text-transform: capitalize;
         text-overflow: ellipsis;
@@ -24,6 +28,19 @@
         font-size: 1rem;
         opacity: 0.8;
     }
+    
+    audio {
+        display: none;
+    }
+
+    & button {
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    &:hover button {
+        opacity: 1;
+    }
 
     &:last-child {
         border-bottom: none;
@@ -36,7 +53,7 @@
             width: 40px;
             height: 40px;
         }
-        
+
         &__name {
             width: 170px;
             font-size: 0.875rem;

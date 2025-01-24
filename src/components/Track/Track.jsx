@@ -3,25 +3,30 @@ import gsap from "gsap";
 import PlayBtn from "../PlayBtn/PlayBtn";
 import s from "./Track.module.scss";
 
-const Track = ({ data }) => {
+const Track = ({ data, play, setPlay }) => {
 
     const audio = useRef(null);
     const wrapper = useRef(null);
 
-    const [play, setPlay] = useState(false);
 
     const handleClick = () => {
-        if (play) {
+        if (play === 1) {
             audio.current.pause();
+            setPlay(false)
         } else {
+            const audioArray = document.querySelectorAll("audio");
+            audioArray.forEach(audioItem => {
+                audioItem.pause();
+            });
+            
             audio.current.currentTime = 0;
             audio.current.play();
+            setPlay(1);
         }
-        setPlay(!play);
     }
 
     const tick = () => {
-        if (play) {
+        if (play === 1) {
             if (audio.current.ended) {
                 setPlay(false);
                 wrapper.current.style.background = "var(--color-primary)";
@@ -45,11 +50,11 @@ const Track = ({ data }) => {
                 className={s["Track__cover-wrapper"]}
                 ref={wrapper}
             >
-                <img onClick={handleClick} className={`${s['Track__cover']} ${play && s['Track__cover--play']}`} src={data?.album?.cover_big} alt="" />
-                <PlayBtn handleClick={handleClick} play={play} />
+                <img onClick={handleClick} className={`${s['Track__cover']} ${play === 1 && s['Track__cover--play']}`} src={data?.album?.cover_big} alt="" />
+                <PlayBtn handleClick={handleClick} play={play} idTrack={1} />
             </div>
-            <a href={data?.link} target="_blank" className={`${play && s['Track__name--play']}`} >
-                <h1 className={`${s['Track__name']} ${play && s['Track__name--play']}`} >{data?.title}</h1>
+            <a href={data?.link} target="_blank" className={`${play === 1 && s['Track__name--play']}`} >
+                <h1 className={`${s['Track__name']} ${play === 1 && s['Track__name--play']}`} >{data?.title}</h1>
             </a>
             <div className={s['Track__artist']}>
                 <img src={data?.artist?.picture_small} alt="" />

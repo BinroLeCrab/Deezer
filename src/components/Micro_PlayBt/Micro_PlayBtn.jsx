@@ -1,6 +1,6 @@
-import s from "./PlayBtn.module.scss";
+import s from "./Micro_PlayBtn.module.scss";
 
-const PlayBtn = ({ handleClick, play, idTrack }) => {
+const Micro_PlayBtn = ({ handleClick, play, idTrack }) => {
     
 
     return (
@@ -16,7 +16,7 @@ const PlayBtn = ({ handleClick, play, idTrack }) => {
     );
 };
 
-export default PlayBtn;
+export default Micro_PlayBtn;
 
 /* 
      _____     _____
