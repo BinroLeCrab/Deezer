@@ -17,3 +17,11 @@ const PlayBtn = ({ handleClick, play }) => {
 };
 
 export default PlayBtn;
+
+/* 
+     _____     _____
+    |  _  |   |  _  |
+   -| | | |---| | | |-
+    |_____| 7 |_____|  ~B!nro~
+    
+*/

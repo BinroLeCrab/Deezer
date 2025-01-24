@@ -16,3 +16,11 @@ const Micro_track = ({ data }) => {
 };
 
 export default Micro_track;
+
+/* 
+     _____     _____
+    |  _  |   |  _  |
+   -| | | |---| | | |-
+    |_____| 7 |_____|  ~B!nro~
+    
+*/
