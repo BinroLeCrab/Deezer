@@ -10,8 +10,6 @@ const Track = ({ data }) => {
 
     const [play, setPlay] = useState(false);
 
-    console.log(data);
-
     const handleClick = () => {
         if (play) {
             audio.current.pause();
@@ -28,7 +26,6 @@ const Track = ({ data }) => {
                 setPlay(false);
                 wrapper.current.style.background = "var(--color-primary)";
             } else {
-                console.log(audio.current.currentTime);
                 const percent = (audio.current.currentTime / audio.current.duration) * 100;
                 wrapper.current.style.background = `conic-gradient(var(--color-primary) ${percent}%, var(--color-neutral-800) ${percent}%)`;
             }
@@ -36,7 +33,6 @@ const Track = ({ data }) => {
     }
 
     useEffect(() => {
-        console.log(play)
         gsap.ticker.add(tick);
         return () => {
             gsap.ticker.remove(tick);

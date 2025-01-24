@@ -20,7 +20,7 @@ function App() {
         if (response.ok) {
             let data = await response.json();
             // console.log(data);
-            console.log('--- Nombre de track récupérées :', data.total);
+            // console.log('--- Nombre de track récupérées :', data.total);
             setTrackNumber(data.total);
         } else {
             console.error('Error:', response.error);
@@ -35,7 +35,7 @@ function App() {
 
         if (response.ok) {
             let data = await response.json();
-            console.log('--- Track récupérées :', data.data);
+            // console.log('--- Track récupérées :', data.data);
             // console.log('--- Nombre de track récupérées :', data.total);
             setTrackArray(data.data);
         } else {
@@ -48,12 +48,12 @@ function App() {
     }, []);
 
     useEffect(() => {
-        console.log('--- Track number :', trackNumber);
+        // console.log('--- Track number :', trackNumber);
         trackNumber != 0 && fetchLastTrack();
     }, [trackNumber]);
 
     useEffect(() => {
-        console.log('--- Track array :', trackArray);
+        // console.log('--- Track array :', trackArray);
         trackArray != undefined && setTrack(trackArray[2]);
     }, [trackArray]);
 
