@@ -75,18 +75,13 @@
 
 @media (max-width: 440px) {
     .Micro-Track {
-        &__cover {
-            width: 40px;
-            height: 40px;
-        }
-
         &__name {
             width: 170px;
-            font-size: 0.875rem;
+            font-size: 0.938rem;
         }
     
         &__artist {
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             opacity: 0.8;
         }
     } 
