@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Track from './components/Track/Track';
 import Micro_track from './components/Micro_Track/Micro_Track';
 import BgColor from './components/BgColor/BgColor';
+import Loading from './components/Loading/Loading';
 
 function App() {
 
@@ -61,14 +62,14 @@ function App() {
         <>
             {track ?
                 <main>
-                    {track.album.cover_medium && <BgColor srcImg={track?.album?.cover_medium}/>}
+                    {track.album.cover_medium && <BgColor srcImg={track?.album?.cover_medium} />}
                     <div className="Wrapper">
                         <Track data={track} />
                         <Micro_track data={trackArray[1]} />
                         <Micro_track data={trackArray[0]} />
                     </div>
                 </main>
-                : <p>Chargement...</p>
+                : <Loading />
             }
         </>
     )
