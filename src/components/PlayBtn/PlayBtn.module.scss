@@ -1,0 +1,40 @@
+.PlayBtn {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--color-neutral-50);
+
+    &:hover {
+        background-color: var(--color-neutral-100);
+    }
+
+    &--play {
+        background-color: var(--color-primary);
+        opacity: 1 !important;
+        bottom: 15px;
+        right: 15px;
+
+        &:hover {
+            background-color: var(--color-primary-20);
+        }
+    }
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+    }
+}
+
+
+
+// background: conic-gradient(#ffffff 90%, #000000 90%);

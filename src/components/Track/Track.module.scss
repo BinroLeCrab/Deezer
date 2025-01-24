@@ -3,26 +3,59 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--color-neutral-700);
     padding: 10px 0px;
     gap: 5px;
+
+    &__cover-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-neutral-800);
+        border-radius: 10px;
+
+        & > button {
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        &:hover > button {
+            opacity: 1;
+        }
+    }
 
     &__cover {
         width: 100%;
         aspect-ratio: 1/1;
         border-radius: 10px;
+        transition: 0.2s ease-in-out;
+
+        &--play {
+            margin: 5px;
+            width: calc(100% - 10px);
+            border-radius: 5px;
+        }
     }
 
     &__name {
         text-transform: capitalize;
         font-size: 1.5rem;
         padding: 0px 5px;
+        margin: 5px 0;
+
+        &--play {
+            color: var(--color-primary);
+
+            &:hover {
+                text-decoration: underline var(--color-primary);
+            }
+        }
     }
 
     &__artist {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 10px;
         font-size: 1.2rem;
         padding: 0px 5px;
 
@@ -34,6 +67,7 @@
     }
 
     audio {
+        display: none;
         position: absolute;
         top: 0;
         left: 0;
