@@ -3,6 +3,7 @@ import { use } from 'react';
 import { useEffect, useState } from 'react'
 import Track from './components/Track/Track';
 import Micro_track from './components/Micro_Track/Micro_Track';
+import BgColor from './components/BgColor/BgColor';
 
 function App() {
 
@@ -59,11 +60,14 @@ function App() {
     return (
         <>
             {track ?
-                <div className="Wrapper">
-                    <Track data={track} />
-                    <Micro_track data={trackArray[1]} />
-                    <Micro_track data={trackArray[0]} />
-                </div>
+                <main>
+                    {track.album.cover_medium && <BgColor srcImg={track?.album?.cover_medium}/>}
+                    <div className="Wrapper">
+                        <Track data={track} />
+                        <Micro_track data={trackArray[1]} />
+                        <Micro_track data={trackArray[0]} />
+                    </div>
+                </main>
                 : <p>Chargement...</p>
             }
         </>

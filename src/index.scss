@@ -17,16 +17,21 @@
     --color-neutral-800: #29282D;
     --color-neutral-900: #1B191F;
     --color-neutral-950: #0F0D13;
+    --color-neutral-950-20: #0e0c1233;
 }
 
 body {
+    color: white;
+    font-family: roboto, sans-serif;
+    background-color: var(--color-neutral-950);
+}
+
+main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: roboto, sans-serif;
-    background-color: var(--color-neutral-950);
-    color: white;
+    background-color: var(--color-neutral-950-20);
 }
 
 a {
