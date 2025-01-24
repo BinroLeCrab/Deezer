@@ -29,6 +29,7 @@
         aspect-ratio: 1/1;
         border-radius: 10px;
         transition: 0.2s ease-in-out;
+        cursor: pointer;
 
         &--play {
             margin: 5px;
@@ -71,5 +72,32 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+}
+
+
+@media (max-width: 440px) {
+    .Track {
+        &__cover-wrapper {
+    
+            & > button {
+                opacity: 1;
+            }
+        }
+
+        &__name {
+            font-size: 1.25rem;
+        }
+    
+        &__artist {
+            gap: 10px;
+            font-size: 1rem;
+            padding: 0px 5px;
+    
+            & > img {
+                width: 32px;
+                height: 32px;
+            }
+        }
     }
 }

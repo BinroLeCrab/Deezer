@@ -29,3 +29,22 @@
         border-bottom: none;
     }
 }
+
+@media (max-width: 440px) {
+    .Micro-Track {
+        &__cover {
+            width: 40px;
+            height: 40px;
+        }
+        
+        &__name {
+            width: 170px;
+            font-size: 0.875rem;
+        }
+    
+        &__artist {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+    } 
+}

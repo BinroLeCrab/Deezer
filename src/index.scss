@@ -54,3 +54,9 @@ a {
     border-radius: 20px;
     padding: 0px 10px;
 }
+
+@media (max-width: 440px) {
+    .Wrapper {
+        width: 90vw;
+    }
+}
