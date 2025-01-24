@@ -48,7 +48,7 @@ const Track = ({ data }) => {
                 <img onClick={handleClick} className={`${s['Track__cover']} ${play && s['Track__cover--play']}`} src={data?.album?.cover_big} alt="" />
                 <PlayBtn handleClick={handleClick} play={play} />
             </div>
-            <a href={data?.link} target="_blank">
+            <a href={data?.link} target="_blank" className={`${play && s['Track__name--play']}`} >
                 <h1 className={`${s['Track__name']} ${play && s['Track__name--play']}`} >{data?.title}</h1>
             </a>
             <div className={s['Track__artist']}>
