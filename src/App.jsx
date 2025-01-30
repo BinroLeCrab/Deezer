@@ -39,7 +39,7 @@ function App() {
             let data = await response.json();
             // console.log('--- Track récupérées :', data.data);
             // console.log('--- Nombre de track récupérées :', data.total);
-            setTrackArray(data.data);
+            setTrackArray(data.data.reverse());
         } else {
             console.error('Error:', response.error);
         }
@@ -56,7 +56,7 @@ function App() {
 
     useEffect(() => {
         // console.log('--- Track array :', trackArray);
-        trackArray != undefined && setTrack(trackArray[2]);
+        trackArray != undefined && setTrack(trackArray.shift());
     }, [trackArray]);
 
     return (
@@ -65,9 +65,11 @@ function App() {
                 <main>
                     {track.album.cover_medium && <BgColor srcImg={track?.album?.cover_medium} />}
                     <div className="Wrapper">
-                        <Track data={track} play={play} setPlay={setPlay} />
-                        <Micro_track id={2} data={trackArray[1]} play={play} setPlay={setPlay} />
-                        <Micro_track id={3} data={trackArray[0]} play={play} setPlay={setPlay} />
+                        <Track id={40} data={track} play={play} setPlay={setPlay} />
+                        {trackArray.map((track, key) => (
+                            <Micro_track key={key} id={key} data={track} play={play} setPlay={setPlay} />
+                        ))
+                        }
                     </div>
                 </main>
                 : <Loading />
