@@ -1,8 +1,6 @@
 import fetchJsonp from 'fetch-jsonp';
-import { use } from 'react';
 import { useEffect, useState } from 'react'
 import Track from './components/Track/Track';
-import Micro_track from './components/Micro_Track/Micro_Track';
 import BgColor from './components/BgColor/BgColor';
 import Loading from './components/Loading/Loading';
 
@@ -67,7 +65,7 @@ function App() {
                     <div className="Wrapper">
                         <Track id={40} data={track} play={play} setPlay={setPlay} />
                         {trackArray.map((track, key) => (
-                            <Micro_track key={key} id={key} data={track} play={play} setPlay={setPlay} />
+                            <Track micro key={key} id={key} data={track} play={play} setPlay={setPlay} />
                         ))
                         }
                     </div>
