@@ -1,13 +1,12 @@
 import fetchJsonp from 'fetch-jsonp';
-import { use } from 'react';
 import { useEffect, useState } from 'react'
 import Track from './components/Track/Track';
-import Micro_track from './components/Micro_Track/Micro_Track';
 import BgColor from './components/BgColor/BgColor';
 import Loading from './components/Loading/Loading';
 
 function App() {
 
+    const [play, setPlay] = useState(false);
     const [trackNumber, setTrackNumber] = useState(0);
     const [track, setTrack] = useState();
     const [trackArray, setTrackArray] = useState();
@@ -38,7 +37,7 @@ function App() {
             let data = await response.json();
             // console.log('--- Track récupérées :', data.data);
             // console.log('--- Nombre de track récupérées :', data.total);
-            setTrackArray(data.data);
+            setTrackArray(data.data.reverse());
         } else {
             console.error('Error:', response.error);
         }
@@ -55,7 +54,7 @@ function App() {
 
     useEffect(() => {
         // console.log('--- Track array :', trackArray);
-        trackArray != undefined && setTrack(trackArray[2]);
+        trackArray != undefined && setTrack(trackArray.shift());
     }, [trackArray]);
 
     return (
@@ -64,9 +63,11 @@ function App() {
                 <main>
                     {track.album.cover_medium && <BgColor srcImg={track?.album?.cover_medium} />}
                     <div className="Wrapper">
-                        <Track data={track} />
-                        <Micro_track data={trackArray[1]} />
-                        <Micro_track data={trackArray[0]} />
+                        <Track id={40} data={track} play={play} setPlay={setPlay} />
+                        {trackArray.map((track, key) => (
+                            <Track micro key={key} id={key} data={track} play={play} setPlay={setPlay} />
+                        ))
+                        }
                     </div>
                 </main>
                 : <Loading />

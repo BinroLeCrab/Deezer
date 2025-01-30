@@ -1,15 +1,18 @@
 import s from "./PlayBtn.module.scss";
 
-const PlayBtn = ({ handleClick, play }) => {
-    
+const PlayBtn = ({ handleClick, play, idTrack, micro }) => {
+
 
     return (
         <button
-            className={`${s["PlayBtn"]} ${play ? s["PlayBtn--play"] : ""}`}
+            className={micro ?
+                `${s["Micro-PlayBtn"]} ${play === idTrack ? s["Micro-PlayBtn--play"] : ""}`
+                : `${s["PlayBtn"]} ${play === idTrack ? s["PlayBtn--play"] : ""}`
+            }
             title={play ? "pause" : "lecture"}
             onClick={() => handleClick()}
         >
-            {play ?
+            {play === idTrack ?
                 <img src="/assets/pause.svg" alt="" /> :
                 <img src="/assets/play.svg" alt="" />}
         </button>
