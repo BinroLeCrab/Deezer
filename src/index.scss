@@ -31,15 +31,6 @@ nav {
     right: 10px;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--color-neutral-950-20);
-}
-
 a {
     text-decoration: none;
     color: inherit;
@@ -47,22 +38,5 @@ a {
 
     &:hover {
         text-decoration: underline;
-    }
-}
-
-.Wrapper {
-    width: 80vw;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: justify;
-    background-color: var(--color-neutral-900);
-    border-radius: 20px;
-    padding: 0px 10px;
-}
-
-@media (max-width: 440px) {
-    .Wrapper {
-        width: 90vw;
     }
 }

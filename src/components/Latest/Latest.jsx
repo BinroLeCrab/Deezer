@@ -17,7 +17,7 @@ const Latest = ({ data }) => {
     return (
         <div className="Latest">
             {track ?
-                <main>
+                <main className="Latest__main">
                     {track.album.cover_medium && <BgColor srcImg={track?.album?.cover_medium} />}
                     <div className="Wrapper">
                         <Track id={0} data={track} play={play} setPlay={setPlay} />

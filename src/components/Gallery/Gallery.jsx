@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import './Gallery.scss';
 
-const Gallery = ({data}) => {
+const Gallery = ({ data }) => {
 
     useEffect(() => {
         console.log("data gallery", data);
@@ -9,15 +10,20 @@ const Gallery = ({data}) => {
     return (
         <>
             {
-                data ? data.map((track, index) => {
-                    return (
-                        <div key={index}>
-                            <p>{track?.title}</p>
-                            <img src={track?.album?.cover} alt={track?.title} />
-                        </div>
-                    )
-                })
-                : <p>Récupération des données...</p>
+                data ?
+                    <main className="Gallery__Main">
+                        {
+                            data.map((track, index) => {
+                                return (
+                                    <div className="Gallery__div" key={index}>
+                                        {/* <p>#{index} - {track?.title}</p> */}
+                                        <img src={track?.album?.cover_medium} alt={track?.title} />
+                                    </div>
+                                )
+                            })
+                        }
+                    </main>
+                    : <p>Récupération des données...</p>
             }
         </>
     );

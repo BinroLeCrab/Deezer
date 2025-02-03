@@ -1,0 +1,23 @@
+.Gallery__Main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%;
+    padding: 1px;
+    gap: 1px;
+
+    div {
+        flex: 1;
+        max-width: 240px;
+        min-width: 120px;
+        aspect-ratio: 1/1;
+
+        img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            border-radius: 1px;
+            margin-bottom: -4px;
+        }
+    }
+}
