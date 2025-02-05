@@ -83,7 +83,7 @@ function App() {
 
     return (
         <>
-            <NavSwitch handleClick={setPage} />
+            <NavSwitch handleClick={setPage} page={page} />
             {
                 page === 'latest' ? <Latest data={arrayLastTrack} />
                     : page === 'gallery' ? <Gallery data={arrayTrackTotalReverse} />

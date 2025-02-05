@@ -3,4 +3,34 @@
     top: 10px;
     right: 10px;
     z-index: 10;
+    background-color: var(--color-neutral-950);
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50px;
+
+    &__Btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        border: 0;
+        background-color: transparent;
+        height: 46px;
+        width: 46px;
+        border-radius: 50px;
+
+        color: var(--color-neutral-50);
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            color: var(--color-primary);
+        }
+
+        &--active {
+            background-color: var(--color-primary-20);
+            color: var(--color-neutral-50) !important;
+        }
+    }
 }
