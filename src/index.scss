@@ -20,15 +20,22 @@
     --color-neutral-950-20: #0e0c1233;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--color-neutral-950);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 5px;
+}
+
 body {
     color: white;
     font-family: "Inter", sans-serif;
     background-color: var(--color-neutral-950);
-}
-nav {
-    position: fixed;
-    top: 10px;
-    right: 10px;
+    overflow-x: hidden;
 }
 
 a {

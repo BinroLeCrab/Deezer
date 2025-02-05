@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import './Gallery.scss';
+import GalleryItem from "../GalleryItem/GalleryItem";
 
 const Gallery = ({ data }) => {
 
@@ -15,10 +16,7 @@ const Gallery = ({ data }) => {
                         {
                             data.map((track, index) => {
                                 return (
-                                    <div className="Gallery__div" key={index}>
-                                        {/* <p>#{index} - {track?.title}</p> */}
-                                        <img src={track?.album?.cover_medium} alt={track?.title} />
-                                    </div>
+                                    <GalleryItem data={track} key={index} />
                                 )
                             })
                         }

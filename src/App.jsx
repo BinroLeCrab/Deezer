@@ -2,6 +2,7 @@ import fetchJsonp from 'fetch-jsonp';
 import { useEffect, useState } from "react";
 import Gallery from './components/Gallery/Gallery';
 import Latest from './components/Latest/Latest';
+import NavSwitch from './components/NavSwitch/NavSwitch';
 
 function App() {
 
@@ -82,14 +83,11 @@ function App() {
 
     return (
         <>
-            <nav>
-                <button onClick={() => setPage('latest')}>Latest</button>
-                <button onClick={() => setPage('gallery')}>Gallery</button>
-            </nav>
+            <NavSwitch handleClick={setPage} />
             {
                 page === 'latest' ? <Latest data={arrayLastTrack} />
                     : page === 'gallery' ? <Gallery data={arrayTrackTotalReverse} />
-                        : ""
+                    : ""
             }
         </>
     )
