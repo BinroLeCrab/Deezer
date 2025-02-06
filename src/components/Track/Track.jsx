@@ -86,7 +86,7 @@ const Track = ({ id, data, play, setPlay, micro, gallery, audio }) => {
                                 <div ref={wrapper} className={`${s["Micro-Track__btn-wrapper"]} ${play === id && s['Micro-Track__btn-wrapper--play']}`}>
                                     <PlayBtn micro handleClick={handleClick} play={play} idTrack={id} />
                                 </div>
-                                <img className={s["Micro-Track__cover"]} src={data?.album?.cover} alt="" />
+                                <img className={s["Micro-Track__cover"]} src={data?.album?.cover} alt="" loading="lazy"/>
                             </div>
                             <div className={s["Micro-Track__info"]}>
                                 <a href={data?.link} target="_blank">
@@ -104,11 +104,11 @@ const Track = ({ id, data, play, setPlay, micro, gallery, audio }) => {
                         {
                             data.preview ? (
                                 <div ref={wrapper} onClick={handleClick} className={`${s["Gallery-Track"]} ${play === id && s['Gallery-Track--play']}`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>
-                                    <img src={data?.album?.cover_medium || "assets/placeholderImg.jpg"} alt={`${data?.title} - ${data?.artist?.name}`} />
+                                    <img src={data?.album?.cover_medium || "assets/placeholderImg.jpg"} alt={`${data?.title} - ${data?.artist?.name}`} loading="lazy" />
                                 </div>
                             ) : (
                                 <div ref={wrapper} className={`${s["Gallery-Track"]} ${s['Gallery-Track--noplay']}`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>
-                                    <img src={data?.album?.cover_medium || "assets/placeholderImg.jpg"} alt={`${data?.title} - ${data?.artist?.name}`} />
+                                    <img src={data?.album?.cover_medium || "assets/placeholderImg.jpg"} alt={`${data?.title} - ${data?.artist?.name}`} loading="lazy" />
                                 </div>
                             )
                         }
@@ -127,7 +127,7 @@ const Track = ({ id, data, play, setPlay, micro, gallery, audio }) => {
                                 <h1 className={`${s['Track__name']} ${play === id && s['Track__name--play']}`} >{data?.title}</h1>
                             </a>
                             <div className={s['Track__artist']}>
-                                <img src={data?.artist?.picture_small} alt="" />
+                                <img src={data?.artist?.picture_small} alt="" loading="lazy"/>
                                 <a href={data?.artist?.link} target="_blank">{data?.artist?.name}</a>
                             </div>
                         </div >
