@@ -5,7 +5,7 @@ import BgColor from '../BgColor/BgColor';
 import Loading from '../Loading/Loading';
 import './Latest.scss';
 
-const Latest = ({ data }) => {
+const Latest = ({ data, audio }) => {
 
     const [play, setPlay] = useState(false);
     const [track, setTrack] = useState();
@@ -14,16 +14,21 @@ const Latest = ({ data }) => {
         data && setTrack(data[0]);
     }, [data]);
 
+    useEffect(() => {
+        audio.pause();
+        audio.src = "";
+    }, []);
+
     return (
         <div className="Latest">
             {track ?
                 <main className="Latest__main">
                     {track.album.cover_medium && <BgColor srcImg={track?.album?.cover_medium} />}
                     <div className="Wrapper">
-                        <Track id={0} data={track} play={play} setPlay={setPlay} />
+                        <Track id={0} data={track} play={play} setPlay={setPlay} audio={audio} />
                         {data && data.map((track, key) => {
                             if (key != 0) {
-                                return <Track micro key={key} id={key} data={track} play={play} setPlay={setPlay} />
+                                return <Track micro key={key} id={key} data={track} play={play} setPlay={setPlay} audio={audio} />
                             }
                         })
                         }

@@ -6,12 +6,19 @@ import NavSwitch from './components/NavSwitch/NavSwitch';
 
 function App() {
 
+    const audio = new Audio();
     const [page, setPage] = useState('latest');
 
     const [trackNumber, setTrackNumber] = useState(0);
     const [arrayLastTrack, setArrayLastTrack] = useState();
     const [arrayTrackTotal, setArrayTrackTotal] = useState();
     const [arrayTrackTotalReverse, setArrayTrackTotalReverse] = useState();
+
+    const changePage = (page) => {
+        audio.pause();
+        audio.src = "";
+        setPage(page);
+    }
 
     const fetchTrackNumber = async () => {
 
@@ -65,13 +72,10 @@ function App() {
 
     useEffect(() => {
         if (arrayTrackTotal) {
-            console.log(arrayTrackTotal);
-            console.log(arrayTrackTotal.length);
-            console.log(trackNumber);
             if (arrayTrackTotal.length < trackNumber) {
                 fetchTrack(arrayTrackTotal.length);
             } else {
-                console.log('--- All tracks fetched');
+                // console.log('--- All tracks fetched');
                 setArrayTrackTotalReverse(arrayTrackTotal.reverse());
             }
         }
@@ -83,10 +87,10 @@ function App() {
 
     return (
         <>
-            <NavSwitch handleClick={setPage} page={page} />
+            <NavSwitch handleClick={changePage} page={page} />
             {
-                page === 'latest' ? <Latest data={arrayLastTrack} />
-                    : page === 'gallery' ? <Gallery data={arrayTrackTotalReverse} />
+                page === 'latest' ? <Latest audio={audio} data={arrayLastTrack} />
+                    : page === 'gallery' ? <Gallery audio={audio} data={arrayTrackTotalReverse} />
                     : ""
             }
         </>

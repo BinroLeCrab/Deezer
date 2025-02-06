@@ -3,35 +3,47 @@ import gsap from "gsap";
 import PlayBtn from "../PlayBtn/PlayBtn";
 import s from "./Track.module.scss";
 
-const Track = ({ id, data, play, setPlay, micro }) => {
+const Track = ({ id, data, play, setPlay, micro, gallery, audio }) => {
 
-    const audio = useRef(null);
+    // const audio = useRef(null);
     const wrapper = useRef(null);
 
+    const infoBulleRef = useRef();
+
+    const handleMouseMove = (e) => {
+
+        const infoBulleObject = infoBulleRef.current;
+        infoBulleObject.style.display = "block";
+        infoBulleObject.style.top = `${e.pageY + 12}px`;
+        infoBulleObject.style.left = `${e.pageX + 12}px`;
+
+        if (infoBulleObject.offsetLeft > (window.innerWidth - 100)) {
+            infoBulleObject.style.left = `${e.pageX - infoBulleObject.offsetWidth - 12}px`;
+        }
+    };
 
     const handleClick = () => {
         if (play === id) {
-            audio.current.pause();
+            audio.pause();
             setPlay(false)
         } else {
-            const audioArray = document.querySelectorAll("audio");
-            audioArray.forEach(audioItem => {
-                audioItem.pause();
-            });
+            audio.pause();
+            audio.src = "";
 
-            audio.current.currentTime = 0;
-            audio.current.play();
+            audio.src = data.preview;
+            audio.currentTime = 0;
+            audio.play();
             setPlay(id);
         }
     }
 
     const tick = () => {
         if (play === id) {
-            if (audio.current.ended) {
+            if (audio.ended) {
                 setPlay(false);
                 wrapper.current.style.background = "var(--color-primary)";
             } else {
-                const percent = (audio.current.currentTime / audio.current.duration) * 100;
+                const percent = (audio.currentTime / audio.duration) * 100;
                 wrapper.current.style.background = `conic-gradient(var(--color-primary) ${percent}%, var(--color-neutral-800) ${percent}%)`;
             }
         }
@@ -39,11 +51,11 @@ const Track = ({ id, data, play, setPlay, micro }) => {
 
     const tickMicro = () => {
         if (play === id) {
-            if (audio.current.ended) {
+            if (audio.ended) {
                 setPlay(false);
                 wrapper.current.style.background = "var(--color-neutral-50)";
             } else {
-                const percent = (audio.current.currentTime / audio.current.duration) * 100;
+                const percent = (audio.currentTime / audio.duration) * 100;
                 wrapper.current.style.background = `conic-gradient(var(--color-neutral-50) ${percent}%, var(--color-neutral-800) ${percent}%)`;
             }
         }
@@ -53,9 +65,9 @@ const Track = ({ id, data, play, setPlay, micro }) => {
 
         if (micro) {
             gsap.ticker.add(tickMicro);
-        return () => {
-            gsap.ticker.remove(tickMicro);
-        }
+            return () => {
+                gsap.ticker.remove(tickMicro);
+            }
         } else {
             gsap.ticker.add(tick);
             return () => {
@@ -71,9 +83,6 @@ const Track = ({ id, data, play, setPlay, micro }) => {
                     <>
                         <div className={s["Micro-Track"]}>
                             <div className={s["Micro-Track__cover-wrapper"]}>
-                                <audio ref={audio} controls>
-                                    <source src={data?.preview} type="audio/mp3" />
-                                </audio>
                                 <div ref={wrapper} className={`${s["Micro-Track__btn-wrapper"]} ${play === id && s['Micro-Track__btn-wrapper--play']}`}>
                                     <PlayBtn micro handleClick={handleClick} play={play} idTrack={id} />
                                 </div>
@@ -86,6 +95,23 @@ const Track = ({ id, data, play, setPlay, micro }) => {
                                 <a href={data?.artist?.link} target="_blank" className={s["Micro-Track__artist"]}>{data?.artist?.name}</a>
                             </div>
                         </div>
+                    </>
+                ) : gallery ? (
+                    <>
+                        <div ref={infoBulleRef} className={s['Gallery-Track__Info']}>
+                            <p>{data?.title} - {data?.artist?.name}</p>
+                        </div>
+                        {
+                            data.preview ? (
+                                <div ref={wrapper} onClick={handleClick} className={`${s["Gallery-Track"]} ${play === id && s['Gallery-Track--play']}`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>
+                                    <img src={data?.album?.cover_medium || "assets/placeholderImg.jpg"} alt={`${data?.title} - ${data?.artist?.name}`} />
+                                </div>
+                            ) : (
+                                <div ref={wrapper} className={`${s["Gallery-Track"]} ${s['Gallery-Track--noplay']}`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>
+                                    <img src={data?.album?.cover_medium || "assets/placeholderImg.jpg"} alt={`${data?.title} - ${data?.artist?.name}`} />
+                                </div>
+                            )
+                        }
                     </>
                 ) : (
                     <>
@@ -104,10 +130,6 @@ const Track = ({ id, data, play, setPlay, micro }) => {
                                 <img src={data?.artist?.picture_small} alt="" />
                                 <a href={data?.artist?.link} target="_blank">{data?.artist?.name}</a>
                             </div>
-
-                            <audio ref={audio} controls>
-                                <source src={data?.preview} type="audio/mp3" />
-                            </audio>
                         </div >
                     </>
                 )
