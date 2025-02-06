@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Gallery from './components/Gallery/Gallery';
 import Latest from './components/Latest/Latest';
 import NavSwitch from './components/NavSwitch/NavSwitch';
+import List from './components/List/List';
 
 function App() {
 
@@ -13,12 +14,6 @@ function App() {
     const [arrayLastTrack, setArrayLastTrack] = useState();
     const [arrayTrackTotal, setArrayTrackTotal] = useState();
     const [arrayTrackTotalReverse, setArrayTrackTotalReverse] = useState();
-
-    const changePage = (page) => {
-        audio.pause();
-        audio.src = "";
-        setPage(page);
-    }
 
     const fetchTrackNumber = async () => {
 
@@ -87,10 +82,11 @@ function App() {
 
     return (
         <>
-            <NavSwitch handleClick={changePage} page={page} />
+            <NavSwitch handleClick={setPage} page={page} />
             {
                 page === 'latest' ? <Latest audio={audio} data={arrayLastTrack} />
                     : page === 'gallery' ? <Gallery audio={audio} data={arrayTrackTotalReverse} />
+                    : page === 'list' ? <List audio={audio} data={arrayTrackTotalReverse} />
                     : ""
             }
         </>

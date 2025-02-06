@@ -1,0 +1,21 @@
+.List {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 4fr;
+    width: 100%;
+    height: 100vh;
+    padding: 1px;
+    gap: 1px;
+
+    &__First {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .List {
+        grid-template-columns: 3fr 4fr;
+        grid-template-rows: 1fr;
+    }
+}

@@ -1,4 +1,4 @@
-import { ClockCounterClockwise, SquaresFour } from "@phosphor-icons/react";
+import { ClockCounterClockwise, SquareHalf, SquaresFour } from "@phosphor-icons/react";
 import s from "./NavSwitch.module.scss";
 
 const NavSwitch = ({handleClick, page}) => {
@@ -10,6 +10,9 @@ const NavSwitch = ({handleClick, page}) => {
             </button>
             <button className={`${s['NavSwitch__Btn']} ${page === 'gallery' && s['NavSwitch__Btn--active']}`} onClick={() => handleClick('gallery')}>
                 <SquaresFour size={36} />
+            </button>
+            <button className={`${s['NavSwitch__Btn']} ${page === 'list' && s['NavSwitch__Btn--active']}`} onClick={() => handleClick('list')}>
+                <SquareHalf size={36} />
             </button>
         </nav>
     );

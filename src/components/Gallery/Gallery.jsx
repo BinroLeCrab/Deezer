@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './Gallery.scss';
 import Track from "../Track/Track";
 
 const Gallery = ({ data, audio }) => {
 
     const [play, setPlay] = useState(false);
+
+    useEffect(() => {
+        audio.pause();
+        audio.src = "";
+    }, []);
 
     return (
         <>
@@ -14,7 +19,7 @@ const Gallery = ({ data, audio }) => {
                         {
                             data.map((track, index) => {
                                 return (
-                                    <Track gallery key={index} id={index} data={track} play={play} setPlay={setPlay}  audio={audio} />
+                                    <Track gallery key={index} id={index} data={track} play={play} setPlay={setPlay} audio={audio} />
                                 )
                             })
                         }
