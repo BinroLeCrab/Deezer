@@ -6,7 +6,6 @@
     padding: 0;
 }
 
-
 :root {
     --color-primary: #B560FF;
     --color-primary-20: #914DCC;
@@ -46,4 +45,18 @@ a {
     &:hover {
         text-decoration: underline;
     }
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-neutral-700);
+    margin: 20px 0;
+}
+
+.italic {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 0.9em;
+    opacity: 0.6;
 }

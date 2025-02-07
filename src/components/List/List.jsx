@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import './List.scss';
 import Track from "../Track/Track";
+import { Heart } from "@phosphor-icons/react";
 
 const List = ({ data, audio }) => {
 
@@ -16,16 +17,25 @@ const List = ({ data, audio }) => {
             {
                 data ?
                     <main className="List">
-                        <div 
-                            className="List__First"
-                            style={{
-                                background: `url(${data[0]?.album?.cover_xl})`,
-                                backgroundPosition: "center",
-                                backgroundSize: "cover"
-                            }}    
-                        >
+                        <Track variant="listFirst" id={0} data={data[0]} play={play} setPlay={setPlay} audio={audio} />
+                        <div className="List__container">
                             <div>
-                                <p>{data[0]?.title}</p>
+                                <div className="List__title-container">
+                                    <img src="/assets/favicon.ico" alt="" />
+                                    <h1 className="List__title">Ma playlist coup de coeur</h1>
+                                </div>
+                                <div className="separator"></div>
+                            </div>
+                            <div className="List__track-container">
+                                {
+                                    data.map((track, index) => {
+                                        if (index != 0) {
+                                            return (
+                                                <Track variant="listItem" id={index} key={index} data={track} play={play} setPlay={setPlay} audio={audio} />
+                                            );
+                                        }
+                                    })
+                                }
                             </div>
                         </div>
                     </main>

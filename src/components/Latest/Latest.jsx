@@ -28,7 +28,7 @@ const Latest = ({ data, audio }) => {
                         <Track id={0} data={track} play={play} setPlay={setPlay} audio={audio} />
                         {data && data.map((track, key) => {
                             if (key != 0) {
-                                return <Track micro key={key} id={key} data={track} play={play} setPlay={setPlay} audio={audio} />
+                                return <Track variant="micro" key={key} id={key} data={track} play={play} setPlay={setPlay} audio={audio} />
                             }
                         })
                         }
