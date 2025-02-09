@@ -35,10 +35,10 @@ const InfoPopUp = () => {
                                 <p>🧑‍🚀 Développeur Front-End</p>
                             </div>
                             <div className={s["InfoPopUp__social__links"]}>
-                                <a className={`${s["InfoPopUp__social__links__Item"]} ${s["prtf"]}`} href="" target="__blank" title="Mon Portfolio">
+                                <a className={`${s["InfoPopUp__social__links__Item"]} ${s["prtf"]}`} href="https://robinvigier.fr" target="__blank" title="Mon Portfolio">
                                     <Browser weight="bold" size={28} />
                                 </a>
-                                <a className={`${s["InfoPopUp__social__links__Item"]} ${s["lkdin"]}`} href="" target="__blank" title="Mon Linkedin">
+                                <a className={`${s["InfoPopUp__social__links__Item"]} ${s["lkdin"]}`} href="https://www.linkedin.com/in/robin-vigier-02353b267/" target="__blank" title="Mon Linkedin">
                                     <LinkedinLogo weight="bold" size={28} />
                                 </a>
                                 <a className={`${s["InfoPopUp__social__links__Item"]} ${s["git"]}`} href="https://github.com/BinroLeCrab" target="__blank" title="Mon Github">
