@@ -4,6 +4,7 @@ import Gallery from './components/Gallery/Gallery';
 import Latest from './components/Latest/Latest';
 import NavSwitch from './components/NavSwitch/NavSwitch';
 import List from './components/List/List';
+import InfoPopUp from './components/InfoPopUp/InfoPopUp';
 
 function App() {
 
@@ -88,6 +89,7 @@ function App() {
 
     return (
         <>
+            <InfoPopUp />
             <NavSwitch handleClick={changePage} page={page} />
             {
                 page === 'latest' ? <Latest audio={audio} data={arrayLastTrack} />

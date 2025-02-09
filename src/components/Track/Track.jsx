@@ -195,7 +195,7 @@ const Track = ({
                                 }
                             </div>
                             <a href={data?.link} target="_blank" className={`${play === id && s['Track__name--play']}`} >
-                                <h1 className={`${s['Track__name']} ${play === id && s['Track__name--play']}`} >{data?.title}</h1>
+                                <h2 className={`${s['Track__name']} ${play === id && s['Track__name--play']}`} >{data?.title}</h2>
                             </a>
                             <div className={s['Track__artist']}>
                                 <img src={data?.artist?.picture_small} alt="" loading="lazy" />
