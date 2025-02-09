@@ -1,4 +1,4 @@
-.Loading {
+.Loading-Latest {
     width: 80vw;
     max-width: 400px;
     display: flex;
@@ -100,6 +100,192 @@
 
         &:last-child {
             border-bottom: none;
+        }
+    }
+}
+
+.Loading-Gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    margin: 0 auto;
+    width: 100%;
+    padding: 1px;
+    gap: 1px;
+    height: 100vh;
+    overflow: hidden;
+
+    &__Track {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 3px;
+        background-color: var(--color-neutral-800);
+        animation: loading 4s infinite;
+    }
+}
+
+.Loading-List {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 1fr;
+    width: 100%;
+    height: 100vh;
+    padding: 1px;
+    gap: 1px;
+
+    &__First {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        padding: 10px;
+        gap: 10px;
+        background-color: var(--color-neutral-800);
+        animation: loading 4s infinite;
+
+        &__info-wrapper {
+            background-color: var(--color-neutral-900);
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        &__name {
+            text-transform: capitalize;
+            height: 2rem;
+            width: 60%;
+            padding: 0px 5px;
+            margin: 5px 0;
+            background-color: var(--color-neutral-800);
+            animation: loading 4s infinite;
+        }
+
+        &__artist {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &__img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background-color: var(--color-neutral-800);
+                animation: loading 4s infinite;
+            }
+
+            &__name {
+                height: 1.5rem;
+                width: 40%;
+                background-color: var(--color-neutral-800);
+                animation: loading 4s infinite;
+            }
+        }
+    }
+
+    &__Container {
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        padding: 10px 10px 0 10px;
+        height: calc(100vh - 303px);
+
+        &__title-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        &__icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--color-neutral-800);
+            animation: loading 4s infinite;
+        }
+
+        &__title {
+            height: 1.25rem;
+            width: 60%;
+            background-color: var(--color-neutral-800);
+            animation: loading 4s infinite;
+        }
+    }
+
+    &__Track-Container {
+        height: 100%;
+        overflow: hidden;
+
+        &__Track {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0px;
+            border-bottom: 1px solid var(--color-neutral-700);
+            border-radius: 0;
+    
+            &__cover {
+                flex: 1;
+                min-width: 50px;
+                height: 50px;
+                border-radius: 10px;
+                background-color: var(--color-neutral-800);
+                animation: loading 4s infinite;
+            }
+    
+            &__info {
+                width: 100%;
+            }
+    
+            &__name {
+                height: 1.5rem;
+                width: 60%;
+                background-color: var(--color-neutral-800);
+                animation: loading 4s infinite;
+            }
+
+            &__number {
+                height: 0.8rem;
+                width: 40px;
+                background-color: var(--color-neutral-800);
+                animation: loading 4s infinite;
+            }
+    
+            &__artist {
+                height: 1rem;
+                margin-top: 3px;
+                width: 40%;
+                background-color: var(--color-neutral-800);
+                animation: loading 4s infinite;
+            }
+    
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .Loading-Gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .Loading-List {
+        grid-template-columns: 3fr 4fr;
+        grid-template-rows: 1fr;
+
+        &__Container {
+            padding: 20px 20px 0 20px;
+            height: calc(100vh - 2px);
+
+            &__title {
+                height: 2rem;
+            }
+
+            &__icon {
+                width: 40px;
+                height: 40px;
+            }
         }
     }
 }

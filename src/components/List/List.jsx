@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import './List.scss';
 import Track from "../Track/Track";
-import { Heart } from "@phosphor-icons/react";
+import Loading from "../Loading/Loading";
 
 const List = ({ data, audio }) => {
 
@@ -39,7 +39,7 @@ const List = ({ data, audio }) => {
                             </div>
                         </div>
                     </main>
-                    : <p>Récupération des données...</p>
+                    : <Loading variant="list" />
             }
         </>
     );

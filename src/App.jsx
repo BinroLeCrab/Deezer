@@ -8,7 +8,7 @@ import List from './components/List/List';
 function App() {
 
     const audio = new Audio();
-    const [page, setPage] = useState('list');
+    const [page, setPage] = useState('latest');
 
     const [trackNumber, setTrackNumber] = useState(0);
     const [arrayLastTrack, setArrayLastTrack] = useState();

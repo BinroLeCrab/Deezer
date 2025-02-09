@@ -34,7 +34,7 @@ const Latest = ({ data, audio }) => {
                         }
                     </div>
                 </main>
-                : <Loading />
+                : <Loading variant="latest" />
             }
         </div>
     )

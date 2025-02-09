@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import './Gallery.scss';
 import Track from "../Track/Track";
+import Loading from "../Loading/Loading";
 
 const Gallery = ({ data, audio }) => {
 
@@ -25,7 +26,7 @@ const Gallery = ({ data, audio }) => {
                             })
                         }
                     </main>
-                    : <p>Récupération des données...</p>
+                    : <Loading variant="gallery" />
             }
         </>
     );
