@@ -112,14 +112,14 @@ const Track = ({
                         </div>
                         {
                             data.preview ? (
-                                <div ref={wrapper} onClick={handleClick} className={`${s["Gallery-Track"]} ${play === id && s['Gallery-Track--play']}`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>
+                                <div ref={wrapper} onClick={handleClick} className={`${s["Gallery-Track"]} ${play === id && s['Gallery-Track--play']} gsap-gallery`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>
                                     <img src={data?.album?.cover_medium || "assets/placeholderImg.jpg"} alt={`${data?.title} - ${data?.artist?.name}`} loading="lazy" />
                                     {play === id ? <Pause className={s["Gallery-Track__PlayPause"]} size={42} weight="fill" />
                                         : <Play className={s["Gallery-Track__PlayPause"]} size={42} weight="fill" />
                                     }
                                 </div>
                             ) : (
-                                <div ref={wrapper} className={`${s["Gallery-Track"]} ${s['Gallery-Track--noplay']}`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>
+                                <div ref={wrapper} className={`${s["Gallery-Track"]} ${s['Gallery-Track--noplay']} gsap-gallery`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>
                                     <img src={data?.album?.cover_medium || "assets/placeholderImg.jpg"} alt={`${data?.title} - ${data?.artist?.name}`} loading="lazy" />
                                 </div>
                             )
@@ -160,7 +160,7 @@ const Track = ({
                     </>
                 ) : variant === "listItem" ? (
                     <>
-                        <div className={s["listItem"]}>
+                        <div className={`${s["listItem"]} gsap-list`}>
                             <span className={`italic ${s["listItem__number"]}`}>#{id < 9 ? "00" : id < 99 ? 0 : ""}{id + 1} </span>
                             <div className={s["listItem__cover-wrapper"]}>
                                 {data.preview &&

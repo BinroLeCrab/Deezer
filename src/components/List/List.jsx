@@ -2,10 +2,26 @@ import { useState, useEffect } from "react";
 import './List.scss';
 import Track from "../Track/Track";
 import Loading from "../Loading/Loading";
+import gsap from "gsap";
 
 const List = ({ data, audio }) => {
 
     const [play, setPlay] = useState(false);
+
+    const [loadFirst, setLoadFirst] = useState(false);
+
+    const tl = gsap.timeline();
+
+    useEffect(() => {
+        if (data && !loadFirst) {
+            tl.from(".gsap-list", {
+                duration: 0.15,
+                opacity: 0,
+                stagger: 0.05
+            });
+            setLoadFirst(true);
+        }
+    }), [data];
 
     useEffect(() => {
         audio.pause();
