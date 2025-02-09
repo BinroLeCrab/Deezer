@@ -9,6 +9,7 @@
 
     &__container {
         display: grid;
+        grid-template-rows: -webkit-min-content 1fr;
         grid-template-rows: min-content 1fr;
         padding: 10px 10px 0 10px;
         height: calc(100vh - 303px);

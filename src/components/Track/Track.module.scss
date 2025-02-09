@@ -47,7 +47,8 @@
             color: var(--color-primary);
 
             &:hover {
-                text-decoration: underline var(--color-primary);
+                -webkit-text-decoration: underline var(--color-primary);
+                        text-decoration: underline var(--color-primary);
             }
         }
     }
@@ -102,7 +103,8 @@
             color: var(--color-primary);
 
             &:hover {
-                text-decoration: underline var(--color-primary);
+                -webkit-text-decoration: underline var(--color-primary);
+                        text-decoration: underline var(--color-primary);
             }
         }
     }
@@ -180,7 +182,8 @@
             color: var(--color-primary);
 
             &:hover {
-                text-decoration: underline var(--color-primary);
+                -webkit-text-decoration: underline var(--color-primary);
+                        text-decoration: underline var(--color-primary);
             }
         }
     }
@@ -326,7 +329,8 @@
             color: var(--color-primary);
 
             &:hover {
-                text-decoration: underline var(--color-primary);
+                -webkit-text-decoration: underline var(--color-primary);
+                        text-decoration: underline var(--color-primary);
             }
         }
     }

@@ -27,7 +27,8 @@
             width: 100%;
             aspect-ratio: 1/1;
             border-radius: 10px;
-            animation: loading 4s infinite;
+            -webkit-animation: loading 4s infinite;
+                    animation: loading 4s infinite;
         }
 
         &__name {
@@ -37,7 +38,8 @@
             padding: 0px 5px;
             margin: 5px 0;
             background-color: var(--color-neutral-800);
-            animation: loading 4s infinite;
+            -webkit-animation: loading 4s infinite;
+                    animation: loading 4s infinite;
         }
 
         &__artist {
@@ -50,14 +52,16 @@
                 height: 32px;
                 border-radius: 50%;
                 background-color: var(--color-neutral-800);
-                animation: loading 4s infinite;
+                -webkit-animation: loading 4s infinite;
+                        animation: loading 4s infinite;
             }
 
             &__name {
                 height: 1.5rem;
                 width: 40%;
                 background-color: var(--color-neutral-800);
-                animation: loading 4s infinite;
+                -webkit-animation: loading 4s infinite;
+                        animation: loading 4s infinite;
             }
         }
     }
@@ -76,7 +80,8 @@
             height: 50px;
             border-radius: 10px;
             background-color: var(--color-neutral-800);
-            animation: loading 4s infinite;
+            -webkit-animation: loading 4s infinite;
+                    animation: loading 4s infinite;
         }
 
         &__info {
@@ -87,7 +92,8 @@
             height: 1.5rem;
             width: 60%;
             background-color: var(--color-neutral-800);
-            animation: loading 4s infinite;
+            -webkit-animation: loading 4s infinite;
+                    animation: loading 4s infinite;
         }
 
         &__artist {
@@ -95,7 +101,8 @@
             margin-top: 3px;
             width: 40%;
             background-color: var(--color-neutral-800);
-            animation: loading 4s infinite;
+            -webkit-animation: loading 4s infinite;
+                    animation: loading 4s infinite;
         }
 
         &:last-child {
@@ -119,7 +126,8 @@
         aspect-ratio: 1/1;
         border-radius: 3px;
         background-color: var(--color-neutral-800);
-        animation: loading 4s infinite;
+        -webkit-animation: loading 4s infinite;
+                animation: loading 4s infinite;
     }
 }
 
@@ -140,7 +148,8 @@
         padding: 10px;
         gap: 10px;
         background-color: var(--color-neutral-800);
-        animation: loading 4s infinite;
+        -webkit-animation: loading 4s infinite;
+                animation: loading 4s infinite;
 
         &__info-wrapper {
             background-color: var(--color-neutral-900);
@@ -159,7 +168,8 @@
             padding: 0px 5px;
             margin: 5px 0;
             background-color: var(--color-neutral-800);
-            animation: loading 4s infinite;
+            -webkit-animation: loading 4s infinite;
+                    animation: loading 4s infinite;
         }
 
         &__artist {
@@ -172,20 +182,23 @@
                 height: 32px;
                 border-radius: 50%;
                 background-color: var(--color-neutral-800);
-                animation: loading 4s infinite;
+                -webkit-animation: loading 4s infinite;
+                        animation: loading 4s infinite;
             }
 
             &__name {
                 height: 1.5rem;
                 width: 40%;
                 background-color: var(--color-neutral-800);
-                animation: loading 4s infinite;
+                -webkit-animation: loading 4s infinite;
+                        animation: loading 4s infinite;
             }
         }
     }
 
     &__Container {
         display: grid;
+        grid-template-rows: -webkit-min-content 1fr;
         grid-template-rows: min-content 1fr;
         padding: 10px 10px 0 10px;
         height: calc(100vh - 303px);
@@ -200,14 +213,16 @@
             width: 30px;
             height: 30px;
             background-color: var(--color-neutral-800);
-            animation: loading 4s infinite;
+            -webkit-animation: loading 4s infinite;
+                    animation: loading 4s infinite;
         }
 
         &__title {
             height: 1.25rem;
             width: 60%;
             background-color: var(--color-neutral-800);
-            animation: loading 4s infinite;
+            -webkit-animation: loading 4s infinite;
+                    animation: loading 4s infinite;
         }
     }
 
@@ -229,7 +244,8 @@
                 height: 50px;
                 border-radius: 10px;
                 background-color: var(--color-neutral-800);
-                animation: loading 4s infinite;
+                -webkit-animation: loading 4s infinite;
+                        animation: loading 4s infinite;
             }
     
             &__info {
@@ -240,14 +256,16 @@
                 height: 1.5rem;
                 width: 60%;
                 background-color: var(--color-neutral-800);
-                animation: loading 4s infinite;
+                -webkit-animation: loading 4s infinite;
+                        animation: loading 4s infinite;
             }
 
             &__number {
                 height: 0.8rem;
                 width: 40px;
                 background-color: var(--color-neutral-800);
-                animation: loading 4s infinite;
+                -webkit-animation: loading 4s infinite;
+                        animation: loading 4s infinite;
             }
     
             &__artist {
@@ -255,7 +273,8 @@
                 margin-top: 3px;
                 width: 40%;
                 background-color: var(--color-neutral-800);
-                animation: loading 4s infinite;
+                -webkit-animation: loading 4s infinite;
+                        animation: loading 4s infinite;
             }
     
             &:last-child {
@@ -287,6 +306,20 @@
                 height: 40px;
             }
         }
+    }
+}
+
+@-webkit-keyframes loading {
+    0% {
+        background-color: var(--color-neutral-800);
+    }
+
+    50% {
+        background-color: var(--color-neutral-700);
+    }
+
+    100% {
+        background-color: var(--color-neutral-800);
     }
 }
 

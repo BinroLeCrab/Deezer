@@ -70,7 +70,9 @@
     &__social {
         background-color: var(--color-neutral-800);
         display: grid;
+        grid-template-columns: -webkit-min-content 1fr;
         grid-template-columns: min-content 1fr;
+        grid-template-rows: repeat(2, -webkit-min-content);
         grid-template-rows: repeat(2, min-content);
         align-items: center;
         padding: 40px 20px;
@@ -78,7 +80,8 @@
 
         &__picture {
             width: 80px;
-            object-fit: cover;
+            -o-object-fit: cover;
+               object-fit: cover;
             aspect-ratio: 1/1;
             border-radius: 500px;
             grid-row: 1/-1;

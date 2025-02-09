@@ -40,6 +40,8 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 
     &:hover {
