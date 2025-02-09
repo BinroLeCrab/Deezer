@@ -89,9 +89,11 @@ const Track = ({
                     <>
                         <div className={s["Micro-Track"]}>
                             <div className={s["Micro-Track__cover-wrapper"]}>
-                                <div ref={wrapper} className={`${s["Micro-Track__btn-wrapper"]} ${play === id && s['Micro-Track__btn-wrapper--play']}`}>
-                                    <PlayBtn micro handleClick={handleClick} play={play} idTrack={id} />
-                                </div>
+                                {data.preview &&
+                                    <div ref={wrapper} className={`${s["Micro-Track__btn-wrapper"]} ${play === id && s['Micro-Track__btn-wrapper--play']}`}>
+                                        <PlayBtn micro handleClick={handleClick} play={play} idTrack={id} />
+                                    </div>
+                                }
                                 <img className={s["Micro-Track__cover"]} src={data?.album?.cover || "assets/placeholderImg.jpg"} alt="" loading="lazy" />
                             </div>
                             <div className={s["Micro-Track__info"]}>
@@ -133,7 +135,7 @@ const Track = ({
                                 <div className={s["List-First__info"]}>
                                     <a href={data?.link} target="_blank" className={`${play === id && s['List-First__name--play']}`} >
                                         <h2 className={`${s['List-First__name']} ${play === id && s['List-First__name--play']}`} >
-                                            <span className="italic">#{id < 10 ? "00" : id <100 ? 0 :""}{id + 1} </span>
+                                            <span className="italic">#{id < 10 ? "00" : id < 100 ? 0 : ""}{id + 1} </span>
                                             {data?.title}
                                         </h2>
                                     </a>
@@ -143,9 +145,11 @@ const Track = ({
                                     </div>
                                 </div>
                                 <div ref={wrapper} className={`${s["List-First__btn-wrapper"]} ${play === id && s["List-First__btn-wrapper--play"]}`}>
-                                    <div>
-                                        <PlayBtn handleClick={handleClick} play={play} idTrack={id} />
-                                    </div>
+                                    {data.preview &&
+                                        <div>
+                                            <PlayBtn handleClick={handleClick} play={play} idTrack={id} />
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -153,11 +157,13 @@ const Track = ({
                 ) : variant === "listItem" ? (
                     <>
                         <div className={s["listItem"]}>
-                            <span className={`italic ${s["listItem__number"]}`}>#{id < 9 ? "00" : id < 99 ? 0 :""}{id + 1} </span>
+                            <span className={`italic ${s["listItem__number"]}`}>#{id < 9 ? "00" : id < 99 ? 0 : ""}{id + 1} </span>
                             <div className={s["listItem__cover-wrapper"]}>
-                                <div ref={wrapper} className={`${s["listItem__btn-wrapper"]} ${play === id && s['listItem__btn-wrapper--play']}`}>
-                                    <PlayBtn micro handleClick={handleClick} play={play} idTrack={id} />
-                                </div>
+                                {data.preview &&
+                                    <div ref={wrapper} className={`${s["listItem__btn-wrapper"]} ${play === id && s['listItem__btn-wrapper--play']}`}>
+                                        <PlayBtn micro handleClick={handleClick} play={play} idTrack={id} />
+                                    </div>
+                                }
                                 <img className={s["listItem__cover"]} src={data?.album?.cover || "assets/placeholderImg.jpg"} alt="" loading="lazy" />
                             </div>
                             <div className={s["listItem__info"]}>
@@ -175,8 +181,14 @@ const Track = ({
                                 className={s["Track__cover-wrapper"]}
                                 ref={wrapper}
                             >
-                                <img onClick={handleClick} className={`${s['Track__cover']} ${play === id && s['Track__cover--play']}`} src={data?.album?.cover_big || "assets/placeholderImg.jpg"} alt="" />
-                                <PlayBtn cover handleClick={handleClick} play={play} idTrack={id} />
+                                {data.preview ?
+                                    <>
+                                        <img onClick={handleClick} className={`${s['Track__cover']} ${play === id && s['Track__cover--play']}`} src={data?.album?.cover_big || "assets/placeholderImg.jpg"} alt="" />
+                                        <PlayBtn cover handleClick={handleClick} play={play} idTrack={id} />
+                                    </>
+                                    :
+                                    <img className={`${s['Track__cover']}`} src={data?.album?.cover_big || "assets/placeholderImg.jpg"} alt="" />
+                                }
                             </div>
                             <a href={data?.link} target="_blank" className={`${play === id && s['Track__name--play']}`} >
                                 <h1 className={`${s['Track__name']} ${play === id && s['Track__name--play']}`} >{data?.title}</h1>
