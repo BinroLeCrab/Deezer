@@ -11,6 +11,12 @@ console.log(
     "Micro-projet en React.js utilisant l'API Deezer pour afficher ma playlist coup de coeur de l'ajout le plus récent au plus ancien.\n" +
     "\n" +
     "Made by : 🧑‍🚀Robin VIGIER\n" +
+    "\n" +
+    "  _____     _____\n" +
+    " |  _  |   |  _  |\n" +
+    "-| | | |---| | | |-\n" +
+    " |_____| 7 |_____|  ~B!nro~\n" +
+    " \n" +
     "---------------------\n"
 );
 
