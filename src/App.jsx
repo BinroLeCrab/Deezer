@@ -15,6 +15,12 @@ function App() {
     const [arrayTrackTotal, setArrayTrackTotal] = useState();
     const [arrayTrackTotalReverse, setArrayTrackTotalReverse] = useState();
 
+    const changePage = (page) => {
+        audio.pause();
+        audio.src = "";
+        setPage(page);
+    }
+
     const fetchTrackNumber = async () => {
 
         let response = await fetchJsonp('https://api.deezer.com/playlist/5178867444/tracks?output=jsonp', {
@@ -82,7 +88,7 @@ function App() {
 
     return (
         <>
-            <NavSwitch handleClick={setPage} page={page} />
+            <NavSwitch handleClick={changePage} page={page} />
             {
                 page === 'latest' ? <Latest audio={audio} data={arrayLastTrack} />
                     : page === 'gallery' ? <Gallery audio={audio} data={arrayTrackTotalReverse} />
