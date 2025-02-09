@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import PlayBtn from "../PlayBtn/PlayBtn";
 import s from "./Track.module.scss";
+import { Pause, Play } from "@phosphor-icons/react";
 
 const Track = ({
     id,
@@ -113,6 +114,9 @@ const Track = ({
                             data.preview ? (
                                 <div ref={wrapper} onClick={handleClick} className={`${s["Gallery-Track"]} ${play === id && s['Gallery-Track--play']}`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>
                                     <img src={data?.album?.cover_medium || "assets/placeholderImg.jpg"} alt={`${data?.title} - ${data?.artist?.name}`} loading="lazy" />
+                                    {play === id ? <Pause className={s["Gallery-Track__PlayPause"]} size={42} weight="fill" />
+                                        : <Play className={s["Gallery-Track__PlayPause"]} size={42} weight="fill" />
+                                    }
                                 </div>
                             ) : (
                                 <div ref={wrapper} className={`${s["Gallery-Track"]} ${s['Gallery-Track--noplay']}`} onMouseMove={handleMouseMove} onMouseLeave={() => infoBulleRef.current.style.display = "none"}>

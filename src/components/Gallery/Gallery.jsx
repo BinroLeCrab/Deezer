@@ -15,7 +15,8 @@ const Gallery = ({ data, audio }) => {
         <>
             {
                 data ?
-                    <main className="Gallery__Main">
+                    <main className="Gallery">
+                        <div className="Gallery__Filter"></div>
                         {
                             data.map((track, index) => {
                                 return (

@@ -1,14 +1,31 @@
-.Gallery__Main {
+.Gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     margin: 0 auto;
     width: 100%;
     padding: 1px;
     gap: 1px;
+
+    &__Filter {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0;
+        transition: 0.2s ease-in-out;
+    }
+
+    &:hover &__Filter {
+        opacity: 1;
+    }
 }
 
 @media (min-width: 768px) {
-    .Gallery__Main {
+    .Gallery {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
