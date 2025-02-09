@@ -446,3 +446,9 @@
         }
     }
 }
+
+@media (max-width: 488px) {
+    .Gallery-Track:hover {
+        transform: scale(1);
+    }
+}

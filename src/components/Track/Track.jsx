@@ -20,7 +20,12 @@ const Track = ({
 
     const handleMouseMove = (e) => {
 
+        document.querySelectorAll(`.${s['Gallery-Track__Info']}`).forEach(infoBulle => {
+            infoBulle.style.display = "none";
+        });
+
         const infoBulleObject = infoBulleRef.current;
+
         infoBulleObject.style.display = "block";
         infoBulleObject.style.top = `${e.pageY + 12}px`;
         infoBulleObject.style.left = `${e.pageX + 12}px`;
