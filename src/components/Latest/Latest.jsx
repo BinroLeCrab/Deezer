@@ -23,7 +23,7 @@ const Latest = ({ data, audio }) => {
         <div className="Latest">
             {track ?
                 <main className="Latest__main">
-                    {track.album.cover_medium && <BgColor srcImg={track?.album?.cover_medium} />}
+                    {track.album.cover_medium ? <BgColor srcImg={track?.album?.cover_medium} /> : track.album.md5_image ? <BgColor srcImg={`https://cdn-images.dzcdn.net/images/cover/${track?.album?.md5_image}/250x250.jpg`} /> :""}
                     <div className="Wrapper">
                         <Track id={0} data={track} play={play} setPlay={setPlay} audio={audio} />
                         {data && data.map((track, key) => {
